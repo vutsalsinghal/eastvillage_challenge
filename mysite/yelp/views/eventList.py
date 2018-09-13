@@ -32,6 +32,14 @@ def page(request):
     else:
         display_limit = responseObj['total']
 
+    if request.POST:
+        try:
+            display_limit = int(request.POST.get("display", ""))
+            if display_limit > responseObj['total']:
+                display_limit = responseObj['total']
+        except:
+            pass
+
     for i in range(display_limit):
         d = {}
         d['name'] = responseObj['events'][i]['name']
@@ -46,4 +54,5 @@ def page(request):
         events.append(d)
 
     events = sorted(events, key=lambda k:float(k['miles_away']))
+
     return render(request, 'eventList.html',{'events':events, 'total': responseObj['total'], 'display_limit':display_limit})
