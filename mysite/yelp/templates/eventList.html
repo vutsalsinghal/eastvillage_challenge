@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+ {% block title_html %}
+  EventFinder | Events
+ {% endblock %}
+
+ {% block load_css %}
+  #container_color_1 {background-color: #eee;}
+ {% endblock %}
+
+ {% block content %}
+  <div class="section" id="index-banner">
+    <h4>Total {{total}} event around East Village!</h4>
+    {% for event in events %}
+      <div class="card col s12 m6 l4">
+        <div class="card-content">
+          <span class="card-title grey-text text-darken-4"><a href={{event.event_site_url}}>{{event.name}}</a></span>
+          <p style='float:right'>Start Time: {{event.time_start}}</p>
+          <p class='col s12 m6 l6'>Cost: {{event.cost}}</p>
+          This event is {{event.miles_away}} miles away from you!
+          <a class="waves-effect waves-light btn right" href="{% url 'eventDetail' event_id=event.id miles_away=event.miles_away %}">Details</a>
+          <br><br>
+        </div>
+      </div>
+    {% endfor %}
+    <p><i>Displaying {{display_limit}}/{{total}}</i></p>
+  </div>
+
+ {% endblock %}
+
+{% block load_js %}
+{% endblock %}
