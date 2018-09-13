@@ -9,7 +9,23 @@
 
  {% block content %}
   <div class="section" id="index-banner">
-    <h4>Total {{total}} event around East Village!</h4>
+    <h4>{{total}} event around East Village!</h4>
+
+    <div class="card">
+      <div class="card-content">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12 l3 m3">
+              <input id="display" type="text" name='display' value={{display_limit}}>
+              <label for="display">Displaying</label>
+            </div>
+            <button class="btn waves-effect waves-light blue" type="submit">Display<i class="material-icons right">sends</i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     {% for event in events %}
       <div class="card col s12 m6 l4">
         <div class="card-content">
