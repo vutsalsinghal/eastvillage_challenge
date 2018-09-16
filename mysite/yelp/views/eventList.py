@@ -48,7 +48,11 @@ def page(request):
     if request.POST:
         try:
             display_limit = int(request.POST.get("display", ""))
+<<<<<<< HEAD
             if display_limit >= responseObj['total']:
+=======
+            if display_limit > responseObj['total']:
+>>>>>>> fe937ee47d9d2c9a0c75076819baa50268abc4ea
                 display_limit = responseObj['total']
         except:
             pass
