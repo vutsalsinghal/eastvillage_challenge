@@ -23,6 +23,8 @@ urlpatterns = [
     re_path(r'^$', index.page, name='index'),
     re_path(r'^events$', eventList.page, name='events'),
     path('event_detail/<str:event_id>&<str:miles_away>', eventDetail.page, name='eventDetail'),
-    re_path(r'^react/events$', eventList.api, name='eventsJSON'),
-    path('react/event_detail/<str:event_id>&<str:miles_away>', eventDetail.api, name='eventDetailJSON'),
+    re_path(r'^json/events$', eventList.api, name='eventsJSON'),
+    path('json/event_detail/<str:event_id>&<str:miles_away>', eventDetail.api, name='eventDetailJSON'),
+
+    re_path(r'^react/events$', eventList.ReactView.as_view(), name='react_events'),
 ]

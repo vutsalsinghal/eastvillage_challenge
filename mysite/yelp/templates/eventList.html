@@ -10,10 +10,7 @@
  {% block content %}
   <div class="section" id="index-banner">
     <h4>{{total}} event around East Village!</h4>
-<<<<<<< HEAD
-=======
 
->>>>>>> fe937ee47d9d2c9a0c75076819baa50268abc4ea
     <div class="card">
       <div class="card-content">
         <form method="POST">
@@ -30,13 +27,13 @@
     </div>
 
     {% for event in events %}
-      <div class="card">
+      <div class="card col s12 m6 l4">
         <div class="card-content">
-          <span class="card-title grey-text text-darken-4"><a target='_blank' href={{event.event_site_url}}>{{event.name}}</a></span>
+          <span class="card-title grey-text text-darken-4"><a href={{event.event_site_url}}>{{event.name}}</a></span>
           <p style='float:right'>Start Time: {{event.time_start}}</p>
           <p class='col s12 m6 l6'>Cost: {{event.cost}}</p>
           This event is {{event.miles_away}} miles away from you!
-          <a class="waves-effect waves-light btn right amber" href="{% url 'eventDetail' event_id=event.id miles_away=event.miles_away %}">Details</a>
+          <a class="waves-effect waves-light btn right" href="{% url 'eventDetail' event_id=event.id miles_away=event.miles_away %}">Details</a>
           <br><br>
         </div>
       </div>
