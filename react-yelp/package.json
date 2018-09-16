@@ -1,0 +1,25 @@
+{
+  "name": "react-yelp",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://vutsalsinghal.github.io/eastvillage_challenge",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "gh-pages": "^1.2.0",
+    "google-map-react": "^1.0.6",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject"
+  }
+}

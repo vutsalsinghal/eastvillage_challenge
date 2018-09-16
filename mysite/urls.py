@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import include, re_path
+from django.urls import re_path
 from .yelp.views import index, eventList, eventDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', index.page, name='index'),
     re_path(r'^events$', eventList.page, name='events'),
-    path('event_detail/(<str:event_id>)/(<str:miles_away>)', eventDetail.page, name='eventDetail'),
+    path('event_detail/<str:event_id>&<str:miles_away>', eventDetail.page, name='eventDetail'),
+    re_path(r'^react/events$', eventList.api, name='eventsJSON'),
+    path('react/event_detail/<str:event_id>&<str:miles_away>', eventDetail.api, name='eventDetailJSON'),
 ]
