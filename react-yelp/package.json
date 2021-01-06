@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://vutsalsinghal.github.io/eastvillage_challenge",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "gh-pages": "^1.2.0",
     "google-map-react": "^1.0.6",
     "react": "^16.5.1",
